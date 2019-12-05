@@ -50,7 +50,6 @@ def ussd_callback():
         respone = "END Your account balance is USD {}".format(account_balance)
     else:
         respone = "END Invalid input. Try again."
-    
     return respone
 
 
