@@ -3,8 +3,8 @@ import africastalking
 import os
 
 app = Flask(__name__)
-username = ""
-api_key = ""
+username = "sandbox"
+api_key = "5a7aeac0ba3796226080f42e17111da103b40d7a6b5ab6d157b5762f24d6b3e7"
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
@@ -55,4 +55,4 @@ def ussd_callback():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=8060)
