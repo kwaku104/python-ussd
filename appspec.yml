@@ -1,8 +1,12 @@
 version: 0.0
 os: linux
 files:
+  - source: /app.wsgi
+    destination: /home/ec2-user/pythonFiles
   - source: /
     destination: /home/ec2-user/pythonFiles
+  - source: /conf/sample_app.conf
+    destination: /etc/httpd/conf.d
 permissions:
   - object: /
     pattern: "**"
@@ -10,6 +14,10 @@ permissions:
     group: ec2-user
 hooks:
   AfterInstall:
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  ApplicationStart:
     - location: scripts/start_server
       timeout: 300
       runas: root
